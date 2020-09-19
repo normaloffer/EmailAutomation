@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/AdminLTE.css">
+    <link rel="stylesheet" href="/assets/css/_all-skins.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="/admin/dashboard" class="logo">
+            <span class="logo-mini"><b>MS</b></span>
+            <span class="logo-lg">Mail Server</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/assets/images/avatar.png" class="user-image" alt="User Image">
+                            <span class="hidden-xs"><%= user_data.firstname %> <%= user_data.lastname %></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user-header">
+                                <img src="/assets/images/avatar.png" class="img-circle" alt="User Image">
+                                <p>
+                                    <%= user_data.firstname %> <%= user_data.lastname %>
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="/admin/profile"
+                                       class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="/admin/logout" class="btn btn-default btn-flat">Log out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/assets/images/avatar.png" class="img-circle"
+                         alt="<%= user_data.firstname %> <%= user_data.lastname %>">
+                </div>
+                <div class="pull-left info">
+                    <p><%= user_data.firstname %> <%= user_data.lastname %></p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="<% if(active_side_menu[1] == 'dashboard'){__append('active')} %>">
+                    <a href="/admin/dashboard">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="treeview <% if(active_side_menu[1] == 'profile'){__append('menu-open active')} %> ">
+                    <a href="#">
+                        <i class="fa fa-user-circle-o"></i>
+                        <span>Profile</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="<% if(active_side_menu[1] == 'profile' && active_side_menu[2] == null){__append('active')} %>"><a href="/admin/profile"><i class="fa fa-circle-o"></i> Profile</a></li>
+                        <li class="<% if(active_side_menu[1] == 'profile' && active_side_menu[2] == 'update_profile'){__append('active')} %>"><a href="/admin/profile/update_profile"><i class="fa fa-circle-o"></i> Update Profile</a></li>
+                        <li class="<% if(active_side_menu[1] == 'profile' && active_side_menu[2] == 'change_password'){__append('active')} %>"><a href="/admin/profile/change_password"><i class="fa fa-circle-o"></i> Change Password</a></li>
+                    </ul>
+                </li>
+                <li class="treeview <% if(active_side_menu[1] == 'domains'){__append('menu-open active')} %> ">
+                    <a href="#">
+                        <i class="fa fa-globe"></i>
+                        <span>Domains</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="<% if(active_side_menu[1] == 'domains' && active_side_menu[2] == 'add'){__append('active')} %>"><a href="/admin/domains/add"><i class="fa fa-circle-o"></i> Add Domain</a></li>
+                        <li class="<% if(active_side_menu[1] == 'domains' && active_side_menu[2] == null){__append('active')} %>"><a href="/admin/domains"><i class="fa fa-circle-o"></i> Domains</a></li>
+                    </ul>
+                </li>
+                <li class="treeview <% if(active_side_menu[1] == 'users'){__append('menu-open active')} %> ">
+                    <a href="#">
+                        <i class="fa fa-user"></i>
+                        <span>Users</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="<% if(active_side_menu[1] == 'users' && active_side_menu[2] == 'add'){__append('active')} %>"><a href="/admin/users/add"><i class="fa fa-circle-o"></i> Add User</a></li>
+                        <li class="<% if(active_side_menu[1] == 'users' && active_side_menu[2] == null){__append('active')} %>"><a href="/admin/users"><i class="fa fa-circle-o"></i> Users</a></li>
+                    </ul>
+                </li>
+                <li class="<% if(active_side_menu[1] == 'mail_queue'){__append('active')} %>"><a href="/admin/mail_queue"><i class="fa fa-eercast"></i> <span>Mail Queue</span></a></li>
+                <li><a href="/admin/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </section>
+    </aside>
+    <div class="content-wrapper">

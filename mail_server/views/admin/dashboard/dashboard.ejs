@@ -1,0 +1,75 @@
+<%- include('../include/header') %>
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><%= count_d.active_queue; %></h3>
+
+              <p>In Queue</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="/admin/mail_queue" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+              <div class="inner">
+                <h3><%= count_d.bounced_queue; %></h3>
+  
+                <p>Total Bounced</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-eercast"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><%= count_d.domains; %></h3>
+
+              <p>Total Domain</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-globe"></i>
+            </div>
+            <a href="/admin/domains" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><%= count_d.users; %></h3>
+              <p>Total Users</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-user-o"></i>
+            </div>
+            <a href="/admin/users" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+</section>
+<%- include('../include/footer') %>

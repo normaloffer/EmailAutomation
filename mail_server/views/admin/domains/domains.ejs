@@ -1,0 +1,53 @@
+<%- include('../include/header') %>
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Domains</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Domains</li>
+    </ol>
+</section>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form id="paginate_form" data-url="admin_pagination/domains" method="post" onsubmit="return get_data_pagination()" class="box box-primary">
+                <div class="box-header">
+                    <h4 class="box-title">Domains</h4>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" oninput="return get_data_pagination()">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Options</th>
+                        </tr>
+                        </thead>
+                        <tbody id="get_paginate_data">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right" id="paginate_rows">
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../include/footer') %>
+<script>
+    get_data_pagination();
+</script>

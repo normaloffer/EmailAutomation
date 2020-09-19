@@ -1,0 +1,48 @@
+<%- include('../../include/header') %>
+<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Profile info</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Profile info</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Profile info</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <tr>
+                            <th>Firstname</th>
+                            <td><%= user_data.firstname %></td>
+                        </tr>
+                        <tr>
+                            <th>Lastname</th>
+                            <td><%= user_data.lastname %></td>
+                        </tr>
+                        <tr>
+                            <th>Email Address</th>
+                            <td><%= user_data.email %></td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><% if(user_data.status == '1'){__append("Active")}else if(user_data.status == '2'){__append("Inactive")}else if(user_data.status == '3'){__append("Suspend")} %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Registration Date</th>
+                            <td><%= user_data.created_at %></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include('../../include/footer') %>
