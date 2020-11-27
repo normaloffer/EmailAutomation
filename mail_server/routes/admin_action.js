@@ -21,7 +21,7 @@ router.post('/login', function (req, res, next) {
                         if (result[0].status == 0) {
                             res.send({ msg: "This account is not active yet.", status: 0, redirect_url: "" });
                         } else {
-                            session.set_admin_session(result[0].uuid, res);
+                            session.set_admin_session(result[0].id, res);
                             res.send({ msg: "Login Success..!", status: 1, redirect_url: "/admin/dashboard" });
                         }
                     } else {

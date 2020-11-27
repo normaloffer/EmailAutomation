@@ -35,6 +35,7 @@ router.get('/dashboard', function (req, res, next) {
         return;
     }
     session.admin_data(req, async (user_error, user_data) => {
+          console.log(user_error);
         let count_data = await knex.raw("SELECT (SELECT COUNT(*) FROM domains) as domain_count,(SELECT COUNT(*) FROM users) as user_count FROM admins WHERE uuid='"+user_data[0].uuid+"'");
         let result = await postfix_queue();
         let count_d = {

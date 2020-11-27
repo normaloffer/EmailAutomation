@@ -20,7 +20,8 @@ class session {
     }
     admin_data(req, callback) {
         let session_user_id = JSON.parse(helper.base_decode(req.signedCookies[this.admin_session].trim().split('|:|')[1])).main_user;
-        knex.from('admins').select("*").where('uuid', session_user_id)
+                 console.log(session_user_id)
+        knex.from('admins').select("*").where('id', session_user_id)
             .then((rows) => {
                 return callback(null, rows);
             }).catch((err) => {
