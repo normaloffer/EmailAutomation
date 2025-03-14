@@ -331,7 +331,7 @@ service opendkim restart
 service dovecot restart
 
 apt-get install -y nginx
-curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_20.x | sudo bash -
 apt-get install -y nodejs
 cp -r  /root/EmailAutomation /var/www 
 
